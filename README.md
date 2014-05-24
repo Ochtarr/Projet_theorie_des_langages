@@ -1,2 +1,2 @@
-Projet_theorie_des_langages
-===========================
+Projet Théorie des langages
+Conception d'un analyseur lexical et syntaxique pour un mini langage.
