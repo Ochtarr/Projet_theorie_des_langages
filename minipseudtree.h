@@ -14,7 +14,11 @@ enum NodeType {
 	NTMIN   = 322,
 	NTMULT  = 323,
 	NTDIV   = 324,
-	NTPOW   = 325
+	NTPOW   = 325,
+
+	NTAFFICHE = 326,
+	NTSI = 327,
+	NTSINON = 328
 
 };
    
