@@ -39,7 +39,7 @@ variable {lettre}(_|{lettre}|{num})*
 	return(NTVAR);
 }
 
-"AFFICHE"	{yylval.node = createNode(NTAFFICHE); retuen(AFFICHE)}
+"AFFICHE"	{yylval.node = createNode(NTAFFICHE); return(AFFICHE)}
 "SI"		{yylval.node = createNode(NTSI); return(SI)}
 "ALORS"		{yylval.node =  createNode(NTALORS); return(ALORS)}
 "SINON"		{yylval.node = createNode(NTSINON); return(SINON)}
