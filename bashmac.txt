@@ -1,0 +1,18 @@
+rm minipseudtree.o
+rm minipseudeval.o
+rm minipseud.lex.c
+rm minipseud.exe
+rm minipseud.lex.o
+rm minipseud.h
+rm minipseud.y.c
+rm minipseud.y.o
+pause
+bison -d minipseud.y
+lex minipseud.l
+gcc -c minipseud.tab.c -o minipseud.tab.o
+gcc -c minipseudtree.c -o minipseudtree.o
+gcc -c minipseudeval.c -o minipseudeval.o
+gcc -c lex.yy.c -o minipseud.lex.o
+gcc -c minipseud.tab.c -o minipseud.tab.o
+gcc -o minipseud minipseud.lex.o minipseud.tab.o minipseudtree.o minipseudeval.o 
+minipseud -f in.txt

@@ -1,23 +1,24 @@
-
-/* A Bison parser, made by GNU Bison 2.4.1.  */
+/* A Bison parser, made by GNU Bison 2.3.  */
 
 /* Skeleton interface for Bison's Yacc-like parsers in C
-   
-      Copyright (C) 1984, 1989, 1990, 2000, 2001, 2002, 2003, 2004, 2005, 2006
+
+   Copyright (C) 1984, 1989, 1990, 2000, 2001, 2002, 2003, 2004, 2005, 2006
    Free Software Foundation, Inc.
-   
-   This program is free software: you can redistribute it and/or modify
+
+   This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
-   
+   the Free Software Foundation; either version 2, or (at your option)
+   any later version.
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor,
+   Boston, MA 02110-1301, USA.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -28,10 +29,9 @@
    special exception, which will cause the skeleton and the resulting
    Bison output files to be licensed under the GNU General Public
    License without this special exception.
-   
+
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
-
 
 /* Tokens.  */
 #ifndef YYTOKENTYPE
@@ -40,49 +40,67 @@
       know about them.  */
    enum yytokentype {
      NUM = 258,
-     PLUS = 259,
-     MIN = 260,
-     MULT = 261,
-     DIV = 262,
-     POW = 263,
-     OP_PAR = 264,
-     CL_PAR = 265,
-     COLON = 266,
-     EOL = 267,
-     OR = 268,
-     AND = 269,
-     NEQ = 270,
-     EQ = 271,
-     LET = 272,
-     GET = 273,
-     LT = 274,
-     GT = 275,
-     NOT = 276,
-     NEG = 277
+     VAR = 259,
+     PLUS = 260,
+     MIN = 261,
+     MULT = 262,
+     DIV = 263,
+     POW = 264,
+     OP_PAR = 265,
+     CL_PAR = 266,
+     COLON = 267,
+     EOL = 268,
+     OR = 269,
+     AND = 270,
+     NEQ = 271,
+     EQ = 272,
+     LET = 273,
+     GET = 274,
+     LT = 275,
+     GT = 276,
+     NOT = 277,
+     NEG = 278
    };
 #endif
+/* Tokens.  */
+#define NUM 258
+#define VAR 259
+#define PLUS 260
+#define MIN 261
+#define MULT 262
+#define DIV 263
+#define POW 264
+#define OP_PAR 265
+#define CL_PAR 266
+#define COLON 267
+#define EOL 268
+#define OR 269
+#define AND 270
+#define NEQ 271
+#define EQ 272
+#define LET 273
+#define GET 274
+#define LT 275
+#define GT 276
+#define NOT 277
+#define NEG 278
+
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-{
-
-/* Line 1676 of yacc.c  */
 #line 17 "minipseud.y"
-
+{
 	struct Node *node;
-
-
-
-/* Line 1676 of yacc.c  */
-#line 80 "minipseud.tab.h"
-} YYSTYPE;
-# define YYSTYPE_IS_TRIVIAL 1
+}
+/* Line 1529 of yacc.c.  */
+#line 99 "minipseud.tab.h"
+	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
+# define YYSTYPE_IS_TRIVIAL 1
 #endif
 
 extern YYSTYPE yylval;
-
 

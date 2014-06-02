@@ -12,7 +12,9 @@ enum NodeType {
 	NTPOW   = 325,
 	NTAFFICHE = 326,
 	NTSI = 327,
-	NTSINON = 328
+	NTSINON = 328,
+	NTVAR = 329,
+	NTALORS = 330
 };
    
 typedef struct Node {

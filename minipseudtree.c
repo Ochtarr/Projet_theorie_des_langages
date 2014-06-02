@@ -38,6 +38,8 @@ const char* node2String(Node *node) {
 	case NTMULT:  return "NTMULT";
 	case NTDIV:   return "NTDIV";
 	case NTPOW:   return "NTPOW";
+	case NTVAR:	  return "NTVAR";
+	case NTALORS:	  return "NTALORS";
 	
 	default: return "UNK";
 	};
