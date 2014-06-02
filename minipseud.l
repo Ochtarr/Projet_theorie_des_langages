@@ -39,22 +39,18 @@ variable {lettre}(_|{lettre}|{num})*
 	return(NTVAR);
 }
 
-/*Mots-clés du langages*/
 "AFFICHE"	{yylval.node = createNode(NTAFFICHE); retuen(AFFICHE)}
 "SI"		{yylval.node = createNode(NTSI); return(SI)}
 "ALORS"		{yylval.node =  createNode(NTALORS); return(ALORS)}
 "SINON"		{yylval.node = createNode(NTSINON); return(SINON)}
 
 
-
-/*Opérateurs Arithmétiques*/
 "+"   { yylval.node = createNode(NTPLUS); return(PLUS); }
 "-"   { yylval.node = createNode(NTMIN); return(MIN); }
 "*"   { yylval.node = createNode(NTMULT); return(MULT); }
 "/"   { yylval.node = createNode(NTDIV); return(DIV); }
 "^"   { yylval.node = createNode(NTPOW); return(POW); }
 
-/*Ponctuation*/
 ";"    { return(COLON); }
 "\n"   { return(EOL); }
 
