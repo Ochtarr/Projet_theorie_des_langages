@@ -5,13 +5,6 @@
 #include <setjmp.h>
 #include "minipseudtree.h"
 
-
-
-
- 
-
-
-
 int printDepth = 0;
 int funcDepth = 0;
 

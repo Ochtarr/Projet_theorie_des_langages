@@ -19,7 +19,7 @@ Node root;
 }
 
 
-%token   <node> NUM 
+%token   <node> NUM
 %token   <node> PLUS MIN MULT DIV POW
 %token   OP_PAR CL_PAR COLON
 %token   EOL

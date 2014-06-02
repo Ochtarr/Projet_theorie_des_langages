@@ -15,6 +15,7 @@ real {int}("."{int})?{exp}?
 
 booleanFaux {"0"|"False"}{1}
 booleanVrai {"1"|"True"}{1}
+
 boolean = {booleanVrai|booleanFaux}{1}
 
 lettre [a-zA-Z]
@@ -22,7 +23,7 @@ variable {lettre}(_|{lettre}|{num})*
 
 %%
 
-{empty}  { /* Nothing */ }
+{empty}  { }
 
 "("   return(OP_PAR);
 ")"   return(CL_PAR);
@@ -34,15 +35,15 @@ variable {lettre}(_|{lettre}|{num})*
     }
 
 {variable}	{
-	yyval.node = createNode(NTVAR);
-	yyval.node->val = yytext;
+	yylval.node = createNode(NTVAR);
+	yylval.node->val = yytext;
 	return(NTVAR);
 }
 
-"AFFICHE"	{yylval.node = createNode(NTAFFICHE); return(AFFICHE)}
-"SI"		{yylval.node = createNode(NTSI); return(SI)}
-"ALORS"		{yylval.node =  createNode(NTALORS); return(ALORS)}
-"SINON"		{yylval.node = createNode(NTSINON); return(SINON)}
+"AFFICHE" {yylval.node = createNode(NTAFFICHE); return(AFFICHE)}
+"SI" {yylval.node = createNode(NTSI); return(SI)}
+"ALORS" {yylval.node =  createNode(NTALORS); return(ALORS)}
+"SINON" {yylval.node = createNode(NTSINON); return(SINON)}
 
 
 "+"   { yylval.node = createNode(NTPLUS); return(PLUS); }
@@ -53,5 +54,3 @@ variable {lettre}(_|{lettre}|{num})*
 
 ";"    { return(COLON); }
 "\n"   { return(EOL); }
-
-
