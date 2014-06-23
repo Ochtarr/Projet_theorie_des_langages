@@ -77,16 +77,18 @@
 #include "minipseudeval.h"
 
 extern int  yyparse();
+extern int lineNumber;
 extern FILE *yyin;
 
 
 Node root;
- 
+int sym[26];
+int g=3;
 
 
 
 /* Line 189 of yacc.c  */
-#line 90 "minipseud.tab.c"
+#line 92 "minipseud.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -144,14 +146,14 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 17 "minipseud.y"
+#line 19 "minipseud.y"
 
 	struct Node *node;
 
 
 
 /* Line 214 of yacc.c  */
-#line 155 "minipseud.tab.c"
+#line 157 "minipseud.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -163,7 +165,7 @@ typedef union YYSTYPE
 
 
 /* Line 264 of yacc.c  */
-#line 167 "minipseud.tab.c"
+#line 169 "minipseud.tab.c"
 
 #ifdef short
 # undef short
@@ -451,8 +453,8 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    45,    45,    46,    49,    50,    54,    55,    59,    64,
-      65,    66,    67,    68,    69,    70,    71
+       0,    47,    47,    48,    52,    53,    57,    58,    62,    67,
+      68,    69,    70,    71,    72,    73,    74
 };
 #endif
 
@@ -1366,112 +1368,105 @@ yyreduce:
         case 2:
 
 /* Line 1455 of yacc.c  */
-#line 45 "minipseud.y"
+#line 47 "minipseud.y"
     {/* Nothing ... */ ;}
     break;
 
   case 3:
 
 /* Line 1455 of yacc.c  */
-#line 46 "minipseud.y"
+#line 48 "minipseud.y"
     { /* Nothing ... */ ;}
     break;
 
   case 4:
 
 /* Line 1455 of yacc.c  */
-#line 49 "minipseud.y"
-    {  ;}
+#line 52 "minipseud.y"
+    { printf("comma");  ;}
     break;
 
   case 5:
 
 /* Line 1455 of yacc.c  */
-#line 50 "minipseud.y"
+#line 53 "minipseud.y"
     { exec((yyvsp[(1) - (2)].node)); printf("exec");  ;}
     break;
 
   case 6:
 
 /* Line 1455 of yacc.c  */
-#line 54 "minipseud.y"
-    { (yyval.node) = nodeChildren(createNode(NTINSTLIST), (yyvsp[(1) - (1)].node), createNode(NTEMPTY)); ;}
+#line 57 "minipseud.y"
+    { printf("Instruction -- "); (yyval.node) = nodeChildren(createNode(NTINSTLIST), (yyvsp[(1) - (1)].node), createNode(NTEMPTY)); ;}
     break;
 
   case 7:
 
 /* Line 1455 of yacc.c  */
-#line 55 "minipseud.y"
+#line 58 "minipseud.y"
     { (yyval.node) = nodeChildren(createNode(NTINSTLIST), (yyvsp[(1) - (2)].node), (yyvsp[(2) - (2)].node)); ;}
-    break;
-
-  case 8:
-
-/* Line 1455 of yacc.c  */
-#line 59 "minipseud.y"
-    { (yyval.node) = (yyvsp[(1) - (2)].node); ;}
     break;
 
   case 9:
 
 /* Line 1455 of yacc.c  */
-#line 64 "minipseud.y"
+#line 67 "minipseud.y"
     { (yyval.node) = (yyvsp[(1) - (1)].node); ;}
     break;
 
   case 10:
 
 /* Line 1455 of yacc.c  */
-#line 65 "minipseud.y"
+#line 68 "minipseud.y"
     { (yyval.node) = nodeChildren((yyvsp[(2) - (3)].node), (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node)); ;}
     break;
 
   case 11:
 
 /* Line 1455 of yacc.c  */
-#line 66 "minipseud.y"
+#line 69 "minipseud.y"
     { (yyval.node) = nodeChildren((yyvsp[(2) - (3)].node), (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node)); ;}
     break;
 
   case 12:
 
 /* Line 1455 of yacc.c  */
-#line 67 "minipseud.y"
+#line 70 "minipseud.y"
     { (yyval.node) = nodeChildren((yyvsp[(2) - (3)].node), (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node)); ;}
     break;
 
   case 13:
 
 /* Line 1455 of yacc.c  */
-#line 68 "minipseud.y"
+#line 71 "minipseud.y"
     { (yyval.node) = nodeChildren((yyvsp[(2) - (3)].node), (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node)); ;}
     break;
 
   case 14:
 
 /* Line 1455 of yacc.c  */
-#line 69 "minipseud.y"
+#line 72 "minipseud.y"
     { (yyval.node) = nodeChildren((yyvsp[(1) - (2)].node), createNode(NTEMPTY), (yyvsp[(2) - (2)].node)); ;}
     break;
 
   case 15:
 
 /* Line 1455 of yacc.c  */
-#line 70 "minipseud.y"
+#line 73 "minipseud.y"
     { (yyval.node) = nodeChildren((yyvsp[(2) - (3)].node), (yyvsp[(1) - (3)].node), (yyvsp[(3) - (3)].node)); ;}
     break;
 
   case 16:
 
 /* Line 1455 of yacc.c  */
-#line 71 "minipseud.y"
+#line 74 "minipseud.y"
     { (yyval.node) = (yyvsp[(2) - (3)].node); ;}
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1475 "minipseud.tab.c"
+#line 1470 "minipseud.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1683,7 +1678,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 75 "minipseud.y"
+#line 78 "minipseud.y"
 
 
 int exec(Node *node) {
@@ -1692,7 +1687,7 @@ int exec(Node *node) {
 }
 
 int yyerror(char *s) {
-  fprintf(stderr,"%d: %s\n", lineno, s);
+  printf("%s ligne %d\n", s, lineNumber);
 }
 
 int main(int arc, char **argv) {

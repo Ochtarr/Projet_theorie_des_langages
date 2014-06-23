@@ -34,6 +34,7 @@ void evalInst(Node* node) {
 	double val;
 	switch ( node->type ) {
 	case NTEMPTY: return;
+	case NTNUM: return;
 	case NTINSTLIST:
 		evalInst(node->children[0]);
 		evalInst(node->children[1]);

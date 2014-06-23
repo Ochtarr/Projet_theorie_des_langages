@@ -6,6 +6,7 @@
 #include "minipseudeval.h"
 
 extern int  yyparse();
+extern int lineNumber;
 extern FILE *yyin;
 
 
@@ -45,21 +46,20 @@ int g=3;
 Input:
       {/* Nothing ... */ }
   | Line Input { /* Nothing ... */ }
-  | VAR EGALAFFECT NUM
 
 
 Line:
-    EOL {  }
+    EOL { printf("comma");  }
   | Instlist EOL { exec($1); printf("exec");  }
   ; 
 
 Instlist:
-    Inst  { $$ = nodeChildren(createNode(NTINSTLIST), $1, createNode(NTEMPTY)); } 
+    Inst  { printf("Instruction -- "); $$ = nodeChildren(createNode(NTINSTLIST), $1, createNode(NTEMPTY)); } 
   | Instlist Inst  { $$ = nodeChildren(createNode(NTINSTLIST), $1, $2); }
   ;
 
 Inst:
-    Expr COLON  { $$ = $1; } 
+    Expr COLON
   ;
 
 
@@ -83,7 +83,7 @@ int exec(Node *node) {
 }
 
 int yyerror(char *s) {
-  printf("%s\n", s);
+  printf("%s ligne %d\n", s, lineNumber);
 }
 
 int main(int arc, char **argv) {

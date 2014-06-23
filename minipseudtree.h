@@ -4,7 +4,7 @@
 enum NodeType {
 	NTEMPTY = 0,
 	NTINSTLIST = 1,
-	NTNUM   = 201,
+	NTNUM   = 320,
 	NTPLUS  = 321,
 	NTMIN   = 322,
 	NTMULT  = 323,
@@ -14,7 +14,9 @@ enum NodeType {
 	NTSI = 327,
 	NTSINON = 328,
 	NTVAR = 329,
-	NTALORS = 330
+	NTALORS = 330,
+	NTEGAL = 331,
+	NTBOOL = 332
 };
    
 typedef struct Node {

@@ -3,6 +3,8 @@
 #include "minipseud.h"
 #include <stdlib.h>
 #include "minipseudtree.h"
+
+int lineNumber;
 %}
 
 empty    [ \t]+
@@ -28,17 +30,15 @@ variable {lettre}(_|{lettre}|{num})*
 	yylval.node->val = atof(yytext);
 	return(NTVAR);
 }
-":="  
-"("		return(OP_PAR);
-")"		return(CL_PAR);
-"AFFICHE"	{yylval.node = createNode(NTAFFICHE); return(NTAFFICHE);}
-"SI"	{yylval.node = createNode(NTSI); return(NTSI);}
-"ALORS"	{yylval.node =  createNode(NTALORS); return(NTALORS);}
-"SINON" {yylval.node = createNode(NTSINON); return(NTSINON);}
-"+"		{ yylval.node = createNode(NTPLUS); return(NTPLUS); }
-"-"		{ yylval.node = createNode(NTMIN); return(NTMIN); }
-"*"		{ yylval.node = createNode(NTMULT); return(NTMULT); }
-"/"		{ yylval.node = createNode(NTDIV); return(NTDIV); }
-"^"		{ yylval.node = createNode(NTPOW); return(NTPOW); }
-";"		{ return(COLON); }
-"\n"	{ return(EOL); }
+
+
+"="		{yylval.node = createNode(NTEGAL); return(NTEGAL);}
+"("		{ return(OP_PAR); }
+")"		{ return(CL_PAR); }
+"+"		{ yylval.node = createNode(NTPLUS); return(NTPLUS);}
+"-"		{ yylval.node = createNode(NTMIN); return(NTMIN);}
+"*"		{ yylval.node = createNode(NTMULT); return(NTMULT);}
+"/"		{ yylval.node = createNode(NTDIV); return(NTDIV);}
+"^"		{ yylval.node = createNode(NTPOW); return(NTPOW);}
+";"		{ return(COLON);}
+"\n"	{ lineNumber++; return(EOL);}
