@@ -10,7 +10,8 @@ extern FILE *yyin;
 
 
 Node root;
- 
+int sym[26];
+int g=3;
 
 %}
 
@@ -44,6 +45,7 @@ Node root;
 Input:
       {/* Nothing ... */ }
   | Line Input { /* Nothing ... */ }
+  | VAR EGALAFFECT NUM
 
 
 Line:
@@ -52,18 +54,18 @@ Line:
   ; 
 
 Instlist:
-    Inst { $$ = nodeChildren(createNode(NTINSTLIST), $1, createNode(NTEMPTY)); } 
-  | Instlist Inst { $$ = nodeChildren(createNode(NTINSTLIST), $1, $2); }
+    Inst  { $$ = nodeChildren(createNode(NTINSTLIST), $1, createNode(NTEMPTY)); } 
+  | Instlist Inst  { $$ = nodeChildren(createNode(NTINSTLIST), $1, $2); }
   ;
 
 Inst:
-    Expr COLON { $$ = $1; } 
+    Expr COLON  { $$ = $1; } 
   ;
 
 
 Expr:
   NUM			{ $$ = $1; }
-    | Expr PLUS Expr     { $$ = nodeChildren($2, $1, $3); }
+  | Expr PLUS Expr     { $$ = nodeChildren($2, $1, $3); }
   | Expr MIN Expr      { $$ = nodeChildren($2, $1, $3); }
   | Expr MULT Expr     { $$ = nodeChildren($2, $1, $3); }
   | Expr DIV Expr      { $$ = nodeChildren($2, $1, $3); }
@@ -75,21 +77,14 @@ Expr:
 
 %%
 
- 
- 
-
 int exec(Node *node) {
    /*printGraph(node);*/
   eval(node);
 }
 
- 
-
 int yyerror(char *s) {
   printf("%s\n", s);
 }
-
- 
 
 int main(int arc, char **argv) {
    if ((arc == 3) && (strcmp(argv[1], "-f") == 0)) {
@@ -101,8 +96,8 @@ int main(int arc, char **argv) {
     }      
     yyin=fp;
     yyparse();
-		  
     fclose(fp);
   }  
   exit(0);
 }
+
