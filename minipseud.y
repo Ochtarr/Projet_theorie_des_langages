@@ -6,25 +6,25 @@
 #include "minipseudeval.h"
 
 extern int  yyparse();
-extern int lineNumber;
 extern FILE *yyin;
 
-
 Node root;
-int sym[26];
-int g=3;
 
 %}
 
 %union {
 	struct Node *node;
+	char * var;
+	double val;
 }
 
 
-%token   <node> NUM VAR
-%token   <node> PLUS MIN MULT DIV POW
-%token   OP_PAR CL_PAR COLON
+%token   <node> NUM
+%token   <node> PLUS MIN MULT DIV POW EGAL
+%token   <node> VARIABLE
+%token   OP_PAR CL_PAR COLON AFFICHE
 %token   EOL
+
 
 %type   <node> Instlist
 %type   <node> Inst
@@ -49,17 +49,17 @@ Input:
 
 
 Line:
-    EOL { printf("comma");  }
-  | Instlist EOL { exec($1); printf("exec");  }
+    EOL {  }
+  | Instlist EOL { exec($1); }
   ; 
 
 Instlist:
-    Inst  { printf("Instruction -- "); $$ = nodeChildren(createNode(NTINSTLIST), $1, createNode(NTEMPTY)); } 
-  | Instlist Inst  { $$ = nodeChildren(createNode(NTINSTLIST), $1, $2); }
+    Inst { $$ = nodeChildren(createNode(NTINSTLIST), $1, createNode(NTEMPTY)); } 
+  | Instlist Inst { $$ = nodeChildren(createNode(NTINSTLIST), $1, $2); }
   ;
 
 Inst:
-    Expr COLON
+    Expr COLON { $$ = $1; } 
   ;
 
 
@@ -72,19 +72,28 @@ Expr:
   | MIN Expr %prec NEG { $$ = nodeChildren($1, createNode(NTEMPTY), $2); }
   | Expr POW Expr      { $$ = nodeChildren($2, $1, $3); }
   | OP_PAR Expr CL_PAR { $$ = $2; }
+  | VARIABLE EGAL Expr {printf("affectation\n");$$ = nodeChildren($2, $1, $3);}
+  | AFFICHE OP_PAR VARIABLE CL_PAR {printf(" affichage variable");}
   ;
 
 
 %%
 
+ 
+ 
+
 int exec(Node *node) {
-   /*printGraph(node);*/
+  /*printGraph(node);*/
   eval(node);
 }
 
+ 
+
 int yyerror(char *s) {
-  printf("%s ligne %d\n", s, lineNumber);
+  printf("%s\n", s);
 }
+
+ 
 
 int main(int arc, char **argv) {
    if ((arc == 3) && (strcmp(argv[1], "-f") == 0)) {
@@ -96,8 +105,8 @@ int main(int arc, char **argv) {
     }      
     yyin=fp;
     yyparse();
+		  
     fclose(fp);
   }  
   exit(0);
 }
-

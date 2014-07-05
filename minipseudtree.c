@@ -24,22 +24,21 @@ const char* node2String(Node *node) {
 	switch ( node->type ) {
 	case NTEMPTY:    return "NTEMPTY";
 	case NTINSTLIST: return "NTINSTLIST";
-
+	
 	 
-
+	
 	case NTNUM:
 		res = (char *)malloc(sizeof(char) * 32);
 		sprintf(res, "NTNUM -> %f", node->val);
 		return res;
-	 
-
 	case NTPLUS:  return "NTPLUS";
 	case NTMIN:   return "NTMIN";
 	case NTMULT:  return "NTMULT";
 	case NTDIV:   return "NTDIV";
 	case NTPOW:   return "NTPOW";
-	case NTVAR:	  return "NTVAR";
-	case NTALORS:	  return "NTALORS";
+	case NTEGAL:  return "NTEGAL";
+	case NTVAR: return "NTVAR";
+	case NTAFFICHE: return "NTAFFICHE";
 	
 	default: return "UNK";
 	};

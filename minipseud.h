@@ -40,26 +40,28 @@
       know about them.  */
    enum yytokentype {
      NUM = 258,
-     VAR = 259,
-     PLUS = 260,
-     MIN = 261,
-     MULT = 262,
-     DIV = 263,
-     POW = 264,
-     OP_PAR = 265,
-     CL_PAR = 266,
-     COLON = 267,
-     EOL = 268,
-     OR = 269,
-     AND = 270,
-     NEQ = 271,
-     EQ = 272,
-     LET = 273,
-     GET = 274,
-     LT = 275,
-     GT = 276,
-     NOT = 277,
-     NEG = 278
+     PLUS = 259,
+     MIN = 260,
+     MULT = 261,
+     DIV = 262,
+     POW = 263,
+     EGAL = 264,
+     VARIABLE = 265,
+     OP_PAR = 266,
+     CL_PAR = 267,
+     COLON = 268,
+     AFFICHE = 269,
+     EOL = 270,
+     OR = 271,
+     AND = 272,
+     NEQ = 273,
+     EQ = 274,
+     LET = 275,
+     GET = 276,
+     LT = 277,
+     GT = 278,
+     NOT = 279,
+     NEG = 280
    };
 #endif
 
@@ -70,14 +72,16 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 19 "minipseud.y"
+#line 15 "minipseud.y"
 
 	struct Node *node;
+	char * var;
+	double val;
 
 
 
 /* Line 1676 of yacc.c  */
-#line 81 "minipseud.tab.h"
+#line 85 "minipseud.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

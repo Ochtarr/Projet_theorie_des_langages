@@ -289,9 +289,9 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 #define YY_END_OF_BUFFER 15
 static yyconst short int yy_accept[27] =
     {   0,
-        0,    0,   15,   14,    1,   13,    5,    6,    9,    7,
-        8,   10,    2,   12,    4,    3,   11,    1,    0,    2,
-        0,    3,    2,    0,    2,    0
+        0,    0,   15,   14,    1,   13,    2,    3,    8,    6,
+        7,    9,    4,   12,   11,    5,   10,    1,    0,    4,
+        0,    5,    4,    0,    4,    0
     } ;
 
 static yyconst int yy_ec[256] =
@@ -305,7 +305,7 @@ static yyconst int yy_ec[256] =
        13,    1,    1,    1,   14,   14,   14,   14,   15,   14,
        14,   14,   14,   14,   14,   14,   14,   14,   14,   14,
        14,   14,   14,   14,   14,   14,   14,   14,   14,   14,
-        1,    1,    1,   16,   17,    1,   14,   14,   14,   14,
+        1,    1,    1,   16,    1,    1,   14,   14,   14,   14,
 
        15,   14,   14,   14,   14,   14,   14,   14,   14,   14,
        14,   14,   14,   14,   14,   14,   14,   14,   14,   14,
@@ -326,44 +326,42 @@ static yyconst int yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static yyconst int yy_meta[18] =
+static yyconst int yy_meta[17] =
     {   0,
         1,    1,    1,    1,    1,    1,    2,    2,    1,    1,
-        2,    1,    1,    1,    1,    1,    1
+        2,    1,    1,    1,    1,    1
     } ;
 
 static yyconst short int yy_base[28] =
     {   0,
-        0,    0,   34,   35,   31,   35,   35,   35,   35,   35,
-       35,   35,    9,   35,   35,   14,   35,   30,   19,    0,
-       16,    0,    8,   15,   11,   35,   19
+        0,    0,   33,   34,   30,   34,   34,   34,   34,   34,
+       34,   34,    8,   34,   34,    6,   34,   29,   19,    0,
+       18,   10,    7,   17,   16,   34,   24
     } ;
 
 static yyconst short int yy_def[28] =
     {   0,
        26,    1,   26,   26,   26,   26,   26,   26,   26,   26,
        26,   26,   26,   26,   26,   26,   26,   26,   26,   13,
-       27,   16,   26,   26,   26,    0,   26
+       27,   26,   26,   26,   26,    0,   26
     } ;
 
-static yyconst short int yy_nxt[53] =
+static yyconst short int yy_nxt[51] =
     {   0,
         4,    5,    6,    7,    8,    9,   10,   11,    4,   12,
-       13,   14,   15,   16,   16,   17,    4,   19,   23,   20,
-       24,   25,   21,   21,   22,   25,   25,   22,   22,   23,
-       22,   18,   18,   26,    3,   26,   26,   26,   26,   26,
-       26,   26,   26,   26,   26,   26,   26,   26,   26,   26,
-       26,   26
+       13,   14,   15,   16,   16,   17,   19,   23,   20,   22,
+       22,   21,   21,   22,   22,   24,   25,   25,   25,   23,
+       18,   18,   26,    3,   26,   26,   26,   26,   26,   26,
+       26,   26,   26,   26,   26,   26,   26,   26,   26,   26
     } ;
 
-static yyconst short int yy_chk[53] =
+static yyconst short int yy_chk[51] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,   13,   23,   13,
-       27,   25,   23,   13,   16,   24,   21,   16,   16,   19,
-       16,   18,    5,    3,   26,   26,   26,   26,   26,   26,
-       26,   26,   26,   26,   26,   26,   26,   26,   26,   26,
-       26,   26
+        1,    1,    1,    1,    1,    1,   13,   23,   13,   16,
+       16,   23,   13,   22,   22,   27,   25,   24,   21,   19,
+       18,    5,    3,   26,   26,   26,   26,   26,   26,   26,
+       26,   26,   26,   26,   26,   26,   26,   26,   26,   26
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -380,12 +378,12 @@ char *yytext;
 #line 1 "minipseud.l"
 #define INITIAL 0
 #line 3 "minipseud.l"
+
 #include "minipseud.h"
 #include <stdlib.h>
 #include "minipseudtree.h"
 
-int lineNumber;
-#line 389 "lex.yy.c"
+#line 387 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -539,7 +537,7 @@ YY_DECL
 #line 20 "minipseud.l"
 
 
-#line 543 "lex.yy.c"
+#line 541 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -596,7 +594,7 @@ yy_match:
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 35 );
+		while ( yy_base[yy_current_state] != 34 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -625,82 +623,82 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 22 "minipseud.l"
-{ }
+{ /* Nothing */ }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 23 "minipseud.l"
+#line 25 "minipseud.l"
+return(OP_PAR);
+	YY_BREAK
+case 3:
+YY_RULE_SETUP
+#line 26 "minipseud.l"
+return(CL_PAR);
+	YY_BREAK
+case 4:
+YY_RULE_SETUP
+#line 29 "minipseud.l"
 {
     yylval.node = createNode(NTNUM);
     yylval.node->val = atof(yytext);
     return(NUM);
-}
-	YY_BREAK
-case 3:
-YY_RULE_SETUP
-#line 28 "minipseud.l"
-{
-	yylval.node = createNode(NTVAR);
-	yylval.node->val = atof(yytext);
-	return(NTVAR);
-}
-	YY_BREAK
-case 4:
-YY_RULE_SETUP
-#line 35 "minipseud.l"
-{yylval.node = createNode(NTEGAL); return(NTEGAL);}
+    }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 36 "minipseud.l"
-{ return(OP_PAR); }
+#line 35 "minipseud.l"
+{
+	yylval.node = createNode(NTVAR);
+	yylval.node->var=(char*)_strdup(yytext);
+	return(VARIABLE);
+    }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 37 "minipseud.l"
-{ return(CL_PAR); }
+#line 42 "minipseud.l"
+{ yylval.node = createNode(NTPLUS); return(PLUS); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 38 "minipseud.l"
-{ yylval.node = createNode(NTPLUS); return(NTPLUS);}
+#line 43 "minipseud.l"
+{ yylval.node = createNode(NTMIN); return(MIN); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 39 "minipseud.l"
-{ yylval.node = createNode(NTMIN); return(NTMIN);}
+#line 44 "minipseud.l"
+{ yylval.node = createNode(NTMULT); return(MULT); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 40 "minipseud.l"
-{ yylval.node = createNode(NTMULT); return(NTMULT);}
+#line 45 "minipseud.l"
+{ yylval.node = createNode(NTDIV); return(DIV); }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 41 "minipseud.l"
-{ yylval.node = createNode(NTDIV); return(NTDIV);}
+#line 46 "minipseud.l"
+{ yylval.node = createNode(NTPOW); return(POW); } 
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 42 "minipseud.l"
-{ yylval.node = createNode(NTPOW); return(NTPOW);}
+#line 47 "minipseud.l"
+{ yylval.node = createNode(NTEGAL); return(EGAL); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 43 "minipseud.l"
-{ return(COLON);}
+#line 49 "minipseud.l"
+{ return(COLON); }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 44 "minipseud.l"
-{ lineNumber++; return(EOL);}
+#line 51 "minipseud.l"
+{ return(EOL); }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 45 "minipseud.l"
+#line 52 "minipseud.l"
 ECHO;
 	YY_BREAK
-#line 704 "lex.yy.c"
+#line 702 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1586,4 +1584,4 @@ int main()
 	return 0;
 	}
 #endif
-#line 45 "minipseud.l"
+#line 52 "minipseud.l"
