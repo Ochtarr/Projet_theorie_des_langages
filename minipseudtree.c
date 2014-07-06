@@ -21,12 +21,10 @@ Node* nodeChildren(Node* father, Node *child1, Node *child2) {
 
 const char* node2String(Node *node) {	
 	char *res;
+	char *les;
 	switch ( node->type ) {
 	case NTEMPTY:    return "NTEMPTY";
 	case NTINSTLIST: return "NTINSTLIST";
-	
-	 
-	
 	case NTNUM:
 		res = (char *)malloc(sizeof(char) * 32);
 		sprintf(res, "NTNUM -> %f", node->val);
@@ -37,7 +35,10 @@ const char* node2String(Node *node) {
 	case NTDIV:   return "NTDIV";
 	case NTPOW:   return "NTPOW";
 	case NTEGAL:  return "NTEGAL";
-	case NTVAR: return "NTVAR";
+	case NTVAR: 
+		les = (char *)malloc(sizeof(char) * 32);
+		sprintf(les, "NTVAR -> %s", node->var);
+		return les;
 	case NTAFFICHE: return "NTAFFICHE";
 	
 	default: return "UNK";

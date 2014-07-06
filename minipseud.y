@@ -14,15 +14,14 @@ Node root;
 
 %union {
 	struct Node *node;
-	char * var;
-	double val;
 }
 
 
 %token   <node> NUM
 %token   <node> PLUS MIN MULT DIV POW EGAL
 %token   <node> VARIABLE
-%token   OP_PAR CL_PAR COLON AFFICHE
+%token   <node> AFFICHE
+%token   OP_PAR CL_PAR COLON
 %token   EOL
 
 
@@ -72,7 +71,7 @@ Expr:
   | MIN Expr %prec NEG { $$ = nodeChildren($1, createNode(NTEMPTY), $2); }
   | Expr POW Expr      { $$ = nodeChildren($2, $1, $3); }
   | OP_PAR Expr CL_PAR { $$ = $2; }
-  | VARIABLE EGAL Expr {printf("affectation\n");$$ = nodeChildren($2, $1, $3);}
+  | VARIABLE EGAL Expr { $$ = nodeChildren(createNode(NTEGAL), $1, $3);}
   | AFFICHE OP_PAR VARIABLE CL_PAR {printf(" affichage variable");}
   ;
 

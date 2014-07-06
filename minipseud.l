@@ -14,7 +14,8 @@ int    {num}+
 exp  [eE][+-]?{int}
 
 real    {int}("."{int})?{exp}?
-lettre  [a-zA-Z]+
+lettre  [a-z]
+affiche ["affiche"]
 
 
 %%
@@ -34,7 +35,7 @@ lettre  [a-zA-Z]+
 
 {lettre}    {
 	yylval.node = createNode(NTVAR);
-	yylval.node->var=(char*)_strdup(yytext);
+	yylval.node->var = (char*)_strdup(yytext);
 	return(VARIABLE);
     }
 
@@ -45,6 +46,7 @@ lettre  [a-zA-Z]+
 "/"   { yylval.node = createNode(NTDIV); return(DIV); }
 "^"   { yylval.node = createNode(NTPOW); return(POW); } 
 "="   { yylval.node = createNode(NTEGAL); return(EGAL); }
+affiche { yylval.node = createNode(NTAFFICHE); return(AFFICHE); }
 
 ";"    { return(COLON); }
 

@@ -47,10 +47,10 @@
      POW = 263,
      EGAL = 264,
      VARIABLE = 265,
-     OP_PAR = 266,
-     CL_PAR = 267,
-     COLON = 268,
-     AFFICHE = 269,
+     AFFICHE = 266,
+     OP_PAR = 267,
+     CL_PAR = 268,
+     COLON = 269,
      EOL = 270,
      OR = 271,
      AND = 272,
@@ -75,13 +75,11 @@ typedef union YYSTYPE
 #line 15 "minipseud.y"
 
 	struct Node *node;
-	char * var;
-	double val;
 
 
 
 /* Line 1676 of yacc.c  */
-#line 85 "minipseud.tab.h"
+#line 83 "minipseud.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

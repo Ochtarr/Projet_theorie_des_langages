@@ -14,7 +14,7 @@ double evalExpr(Node *node) {
 	switch ( node->type ) {
 	case NTEMPTY:  return 0.0;
 	case NTNUM: return node->val;
-	case NTVAR: printf("%c",sysm[node->var[0]-'a']);
+	case NTVAR: //printf("%c",sysm[node->var[0]-'a']);
 			return sysm[node->var[0]-'a'];
 	case NTPLUS: return evalExpr(node->children[0])
 			+ evalExpr(node->children[1]);
@@ -52,6 +52,10 @@ void evalInst(Node* node) {
 	case NTDIV:
 	case NTEGAL:
 	case NTAFFICHE:
+	case NTVAR:
+		printf("%f \n", evalExpr(node));
+		printf("%c <- %f \n", node->var[0],evalExpr(node));
+		return;
 	case NTPOW:
 		printf("%f\n", evalExpr(node));
 		return;
